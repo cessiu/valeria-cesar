@@ -1,0 +1,46 @@
+https://replit.com/@Cesar-TomasTom2/estadisticas-a00573993-a00574096#main.py
+def estadisticas_zoologico():
+  # Inicializar contadores
+  menor_2 = 0
+  entre_2_y_menor_5 = 0
+  entre_5_y_menor_10 = 0
+  mayor_igual_10 = 0
+
+  # Preguntar si hay otro animal a registrar
+  respuesta = input("¿Hay otro animal a registrar? (si/no): ").lower()
+
+  while respuesta == 'si':
+      # Pedir la edad del animal
+      edad = int(input("Ingrese la edad del animal en años: "))
+
+      # Actualizar contadores según el rango de edades
+      if edad < 2:
+          menor_2 += 1
+      elif 2 <= edad < 5:
+          entre_2_y_menor_5 += 1
+      elif 5 <= edad < 10:
+          entre_5_y_menor_10 += 1
+      else:
+          mayor_igual_10 += 1
+
+      # Preguntar nuevamente si hay otro animal a registrar
+      respuesta = input("¿Hay otro animal a registrar? (si/no): ").lower()
+
+  # Calcular porcentajes
+  total_animales = menor_2 + entre_2_y_menor_5 + entre_5_y_menor_10 + mayor_igual_10
+
+  porcentaje_menor_2 = (menor_2 / total_animales) * 100
+  porcentaje_entre_2_y_menor_5 = (entre_2_y_menor_5 / total_animales) * 100
+  porcentaje_entre_5_y_menor_10 = (entre_5_y_menor_10 / total_animales) * 100
+  porcentaje_mayor_igual_10 = (mayor_igual_10 / total_animales) * 100
+
+  # Imprimir estadísticas
+  print(f"\nEstadísticas del zoológico:")
+  print(f"Menor a 2 años: {menor_2} animales ({porcentaje_menor_2:.2f}%)")
+  print(f"Entre 2 y menor a 5 años: {entre_2_y_menor_5} animales ({porcentaje_entre_2_y_menor_5:.2f}%)")
+  print(f"Entre 5 y menor a 10 años: {entre_5_y_menor_10} animales ({porcentaje_entre_5_y_menor_10:.2f}%)")
+  print(f"Mayor o igual a 10 años: {mayor_igual_10} animales ({porcentaje_mayor_igual_10:.2f}%)")
+  print(f"\nTotal de animales registrados: {total_animales}")
+
+# Llamar a la función para ejecutar el algoritmo
+estadisticas_zoologico()
