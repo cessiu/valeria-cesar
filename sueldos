@@ -1,0 +1,39 @@
+ef calcular_sueldo(nombre, salario_base, ventas):
+    # Definir el porcentaje de comisión según las ventas
+    if ventas <= 1000:
+        porcentaje_comision = 0.05
+    elif ventas <= 5000:
+        porcentaje_comision = 0.10
+    else:
+        porcentaje_comision = 0.15
+
+    # Calcular la comisión y el sueldo total
+    comision = ventas * porcentaje_comision
+    sueldo_total = salario_base + comision
+
+    # Imprimir el resultado
+    print(f"{nombre}: Sueldo total = {sueldo_total}")
+
+# Inicializar el contador de vendedores
+contador_vendedores = 1
+
+# Preguntar si hay otro vendedor
+respuesta = input("¿Hay otro vendedor? (si/no): ").lower()
+
+# Iterar mientras haya más vendedores
+while respuesta == 'si':
+    # Pedir información del vendedor
+    nombre = input("Nombre del vendedor: ")
+    salario_base = float(input("Salario base del vendedor: "))
+    ventas = float(input("Total de ventas realizadas por el vendedor: "))
+
+    # Calcular y mostrar el sueldo del vendedor
+    calcular_sueldo(nombre, salario_base, ventas)
+
+    # Incrementar el contador de vendedores
+    contador_vendedores += 1
+
+    # Preguntar de nuevo si hay otro vendedor
+    respuesta = input("¿Hay otro vendedor? (si/no): ").lower()
+
+print(f"Se calcularon los sueldos para {contador_vendedores} vendedores.")
